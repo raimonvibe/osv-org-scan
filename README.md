@@ -20,7 +20,8 @@ Private repos are skipped unless you add a `OSV_SCAN_TOKEN` secret with `repo` s
 Copy `templates/osv-scanner.yml` into a project as `.github/workflows/osv-scanner.yml`.
 
 - **Pull requests:** only **new** vulnerabilities fail the check
-- **Push to default branch / Monday schedule:** full scan, SARIF on the Security tab, `fail-on-vuln: false` so an old backlog does not keep CI red
+- **Push to default branch / Monday schedule:** full scan, `fail-on-vuln: false` so an old backlog does not keep CI red
+- **SARIF:** `upload-sarif: false` on purpose. GitHub Code Scanning is not enabled on most of these repos (private GitHub Free cannot upload SARIF without Advanced Security). The scan still writes the **OSV Scanner SARIF file** Actions artifact. Public repos that later enable Code Scanning can flip that input to `true`.
 
 Pin is `google/osv-scanner-action` **v2.6.0**.
 
