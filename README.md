@@ -11,7 +11,7 @@ Every Monday (and on `workflow_dispatch`) GitHub Actions:
 1. Lists public, non-fork, non-archived `raimonvibe` repos
 2. Shallow-clones each one
 3. Runs `osv-scanner` recursively
-4. Uploads `osv-org-report.md` as an artifact and opens or updates the **OSV org-wide report** issue
+4. Uploads the full `osv-org-report.md` as an artifact and opens or updates the **OSV org-wide report** issue with a compact summary (GitHub issue bodies cap at 65,536 characters)
 
 Private repos are skipped unless you add a `OSV_SCAN_TOKEN` secret with `repo` scope and extend the workflow.
 
